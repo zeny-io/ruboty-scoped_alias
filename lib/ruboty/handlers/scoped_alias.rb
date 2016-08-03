@@ -29,7 +29,7 @@ module Ruboty
       )
 
       def create(message)
-        scope = message[:from]
+        scope = message.from
         from = message[:original]
         to = message[:alias]
         table[scope] ||= {}
@@ -38,7 +38,7 @@ module Ruboty
       end
 
       def delete(message)
-        scope = message[:from]
+        scope = message.from
         table[scope] ||= {}
         if table[scope].delete(message[:alias])
           message.reply("Deleted")
@@ -48,11 +48,11 @@ module Ruboty
       end
 
       def list(message)
-        message.reply(aliases(message[:from]), code: true)
+        message.reply(aliases(message.from), code: true)
       end
 
       def resolve(message)
-        scope = message[:from]
+        scope = message.from
         table[scope] ||= {}
         from = message.body.gsub(prefix, "")
         if aliased = table[scope][from]
