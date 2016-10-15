@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Provides scoped alias}
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/zeny-io/ruboty-scoped-alias"
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
